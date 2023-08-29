@@ -13,9 +13,13 @@ exports.isAuthenticatedUser = catchAsyncErrors(
             return next(new ErrorHandler("Please Login to access this resource",401));
         }
         
-        const decodeData = jwt.verify(token , process.env.JWT_SECRET);
 
-        req.user = await User.findById(decodeData.id);
+        try{
+            const decodeData = jwt.verify(token , process.env.JWT_SECRET);
+            req.user = await User.findById(decodeData.id);
+        }catch(error){
+            res.json({success:false, message:"Error while verifying token"});
+        }
 
         next();
     }
