@@ -42,7 +42,11 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: [true , "Please Enter Product Category"],
     },
-
+    user:{
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+        required: true,
+    },
     Stock: {
         type: Number,
         required: [true , "Please Enter Product Stock"],
