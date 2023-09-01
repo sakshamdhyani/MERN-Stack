@@ -2,3 +2,31 @@
     margin: 0;
     scroll-behavior: smooth;
 }
+
+ /* Hide the increase and decrease buttons */
+ input[type="number"]::-webkit-inner-spin-button,
+ input[type="number"]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   appearance: none;
+   margin: 0;
+}
+ /* Hide the increase and decrease buttons in firefix */
+ input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Other non-WebKit browsers */
+}
+
+
+
+/* firefox */
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+
+.greenColor{
+    color: green;
+}
+
+.redColor{
+    color: red;
+}
