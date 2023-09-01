@@ -17,7 +17,7 @@ const Home = () => {
     const {loading , error , products , productsCount} = useSelector(
         (state) => state.products
     );
-
+    window.scrollTo(0, 0);
     useEffect(() => {
 
         if(error){
@@ -57,7 +57,7 @@ const Home = () => {
             <div className="container" id="container">
 
                 {products && products.map(product => (
-                    <Product product={product}/>
+                    <Product product={product} key={product._id}/>
                 ))}
 
             </div>

@@ -21,14 +21,13 @@ const ProductDetails = ({match}) => {
   const dispatch = useDispatch();
   const {product , loading , error} = useSelector((state) => state.productDetails);
 
+  window.scrollTo(0, 0);
   useEffect(() => {
     
     if(error){
       alert.error(error);
       dispatch(clearErrors());
     }
-
-    window.scrollTo(0, 0);
 
     dispatch(getProductDetails(id));
 
