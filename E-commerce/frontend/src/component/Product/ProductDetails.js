@@ -11,6 +11,7 @@ import {useParams} from "react-router-dom"
 import ReviewCard from "./ReviewCard.js";
 import Loader from '../layout/Loader/Loader';
 import {useAlert} from "react-alert"
+import MetaData from '../layout/MetaData';
 
 
 
@@ -51,6 +52,8 @@ const options = {
       {loading ? (<Loader/>) : (
 
         <Fragment>
+
+        <MetaData title={`${product.name} -- ECOMMERCE`}/>
 
         <div className='ProductDetails' id='#ProductDetails'>
 
