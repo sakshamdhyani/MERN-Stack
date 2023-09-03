@@ -8,6 +8,7 @@ import Home from "./component/Home/Home.js"
 
 import ProductDetails from "./component/Product/ProductDetails.js"
 import Products from "./component/Product/Products.js"
+import LoginSignUp from './component/User/LoginSignUp';
 
 function App() {
 
@@ -34,9 +35,9 @@ function App() {
         <Route exact path='/' element = {<Home/>} />
         <Route exact path='/product/:id' element = {<ProductDetails/>} />
         <Route exact path='/products' element = {<Products/>} />
-        <Route exact path='/products/:keyword' element = {<Products/>} />
+        <Route  path='/products/:keyword' element = {<Products/>} />
         
-
+        <Route exact path='/login' element={<LoginSignUp/>}/>
       </Routes>
       
 

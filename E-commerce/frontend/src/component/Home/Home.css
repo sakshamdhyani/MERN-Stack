@@ -88,10 +88,13 @@
     margin: 2vmax;
     transition: all 0.5s;
     padding-bottom: 0.5vmax;
+    border-radius: 30px;
+    filter: drop-shadow(10px 10px 5px gray);
 }
 
 .productCard > img {
     width: 14vmax;
+    border-radius: 30px;
 }
 
 .productCard > div {
@@ -120,8 +123,6 @@
 }
 
 .productCard:hover{
-    box-shadow: 0 0 5px rgba(15,15,15,0.26);
-
     transform: translateY(-1vmax);
 }
 

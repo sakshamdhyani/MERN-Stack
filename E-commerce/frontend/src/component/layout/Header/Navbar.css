@@ -8,11 +8,10 @@
 }
 
 .navbar{
-    width: 80%;
-    margin: 0 auto;
+    margin: 0 4vmax;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -22,6 +21,7 @@
 
 
 .links{
+    margin-left: 2vmax;
     display: flex;
     gap: 1vmax;
 
@@ -87,6 +87,21 @@
     background-color: transparent;
 }
 
+
+.user{
+    font-size: 2.3vmax;
+    color: white;
+    transition: all 0.5s;
+}
+
+.navIcons{
+    display: flex;
+    gap: 1vmax;
+}
+
+.user:hover{
+    color: tomato;
+}
 
 
 

@@ -14,6 +14,7 @@
     padding: 0 5vmax;
     justify-content: center;
     min-height: 30vh;
+    margin-left: 4vmax;
 }
 
 .paginationBox{
@@ -34,7 +35,7 @@
     background-color: rgb(255,255,255);
     list-style: none;
     border: 1px solid rgba(0,0,0,0.178);
-    padding: 1vmax 1.5vmax;
+    padding: 0.8vmax 1.3vmax;
     transition: all 0.3s;
     cursor: pointer;
 }
@@ -49,7 +50,7 @@
 
 .page-link{
     text-decoration: none;
-    font: 300 0.7vmax "Roboto";
+    font: 300 1vmax "Roboto";
     color: rgb(80,80,80);
     transition: all 0.3s;
 }
@@ -73,8 +74,12 @@
 .filterBox{
     width: 10vmax;
     position: absolute;
-    top: 17vmax;
-    left: 3vmax;
+    top: 13vmax;
+    left: 1.5vmax;
+    padding: 1vmax 2vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .categoryBox{

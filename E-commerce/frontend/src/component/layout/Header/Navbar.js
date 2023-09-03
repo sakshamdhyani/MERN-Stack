@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 // import {ReactNavbar} from "overlay-navbar";
 import logo from "../../../Images/logo.png";
-
+import {BiSolidUserCircle} from "react-icons/bi";
+import {HiShoppingCart} from "react-icons/hi";
 
 // const options = {
 
@@ -105,6 +106,21 @@ const Navbar = () => {
           <Link className='link' to="/about">About</Link>
 
         </div>
+
+
+        <div className='navIcons'>
+          
+            <Link to='/login'>
+                <BiSolidUserCircle className='user'/>
+            </Link>
+
+            <Link>
+                <HiShoppingCart className='user'/>
+            </Link>
+
+        </div>
+
+       
 
       </div>
 
