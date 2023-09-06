@@ -8,24 +8,20 @@
 }
 
 .navbar{
-    margin: 0 4vmax;
+    width: 75%;
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    border: 1px solid black;
 }
+
 
 .navbarLogo > img{
     width: 150px;
+    border: 1px solid black;
 }
 
-
-.links{
-    margin-left: 2vmax;
-    display: flex;
-    gap: 1vmax;
-
-}
 
 .link{
     text-decoration: none;
@@ -38,70 +34,50 @@
     color: #eb4034;
 }
 
-
-
-/* searchbox */
-
-.searchArea{
-    width: 45%;
-    margin-left: -1%;
-}
-
-.searchBox{
+.user{
     position: relative;
 }
 
-.searchBox > input[type="text"] {
-
-    box-shadow: 0 0 5px rgba(0,0,0,0.274);
-    background-color: white;
-    border: none;
-    width: 80%;
-    color: rgba(0,0,0,0.637);
-    padding: 0.8vmax 2vmax;
-    outline: none;
-    font: 300 1.1vmax cursive;
-    box-sizing: border-box;
-
-    border-top-left-radius: 30px;
-}
-
-.searchBox >input[type="submit"] {
-
-    border-radius: 0%;
-    background-color: tomato;
-    border: none;
-    padding: 0.9vmax 0.5vmax;
-    width: 25%;
-    font: 300 1.1vmax "Roboto";
-    cursor: pointer;
-    color: white;
-    transition: all 0.5s;
-    position: absolute;
-
-    border-bottom-right-radius: 30px;
-}
-
-
-.searchBox >input[type="submit"]:hover{
-    background-color: transparent;
-}
-
-
-.user{
-    font-size: 2.3vmax;
-    color: white;
-    transition: all 0.5s;
-}
-
 .navIcons{
+    border: 1px solid black;
     display: flex;
-    gap: 1vmax;
+    align-items: baseline; 
 }
 
-.user:hover{
-    color: tomato;
+
+
+/* speed dial */
+.speedDialIcon{
+    border: 1px solid black;
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
 }
+
+.cart-icon , .user-login-icon{
+
+    width: 44px;
+    height: 44px;
+    color: white;
+}
+.cart-icon {
+    margin-top: 4px;
+}
+
+.speedDial{
+    position: absolute;
+    left: -4vmax;
+}
+
+
+/* Center area */
+.centerArea{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 
 
 

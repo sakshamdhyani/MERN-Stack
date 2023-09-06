@@ -3,57 +3,18 @@ import React, { useState } from 'react'
 import logo from "../../../Images/logo.png";
 import {BiSolidUserCircle} from "react-icons/bi";
 import {HiShoppingCart} from "react-icons/hi";
-
-// const options = {
-
-//         burgerColor : "#eb4034",
-//         burgerColorHover : "#a6d24",
-//         logo,
-//         logoWidth : "20vmax",
-//         navColor1 : "white",
-//         logoHoverSize : "10px",
-//         logoHoverColor : "#eb4034",
-//         link1Text : "Home",
-//         link2Text : "Products",
-//         link3Text : "Contact",
-//         link4Text : "About",
-//         link1Url : "/",
-//         link2Url : "/products",
-//         link3Url : "/contact",
-//         link4Url : "/about",
-//         link1Size : "1.2vamx",
-//         link1Color : "rgba(35,35,35,0.8)",
-//         nav1justifyContent : "flex-end",
-//         nav2justifyContent : "flex-end",
-//         nav3justifyContent : "flex-start",
-//         nav4justifyContent : "flex-start",
-//         link1ColorHover : "#eb4034",
-//         link1Margin : "1vmax",
-//         profileIconColor : "rgba(35,35,35,0.8)",
-//         searchIconColor : "rgba(35,35,35,0.8)",
-//         cartIconColor : "rgba(35,35,35,0.8)",
-//         profileIconColorHover : "#eb4034",
-//         searchIconColorHover : "#eb4034",
-//         cartIconColorHover : "#eb4034",
-//         cartIconMargin : "1vmax",
-
-// }
-
-// const Navbar = () => {
-//   return (
-//     <ReactNavbar
-//         {...options}
-//     />
-//   );
-// };
-
-// export default Navbar
-
+import { useSelector } from 'react-redux';
 
 import "./Navbar.css";
 import { Link , useNavigate  } from 'react-router-dom';
 
+import UserOptions from "../Header/UserOptions.js"
+
+
+
 const Navbar = () => {
+
+  const {isAuthenticated , user} = useSelector (state => state.user);
 
   const [keyword , setKeyword] = useState("");
   const navigate = useNavigate();
@@ -78,49 +39,65 @@ const Navbar = () => {
 
       <div className='navbar'>
 
-        <Link className='navbarLogo' to="/">
-          <img src={logo} alt="logo" />
-        </Link>
+       <div className = "logo" >
 
-        <div className='searchArea'>
-          
-          <form className='searchBox' onSubmit={searchSubmitHandler}>
+          <Link className='navbarLogo' to="/">
+            <img src={logo} alt="logo" />
+          </Link>
 
-            <input 
-            type="text" 
-            placeholder='Search a Product ...'
-            onChange={(event) => setKeyword(event.target.value)}  
-            />
-
-            <input type="submit" value="Search"/>
-
-          </form>
-
-        </div>
-
-        <div className='links'>
-
-          <Link className='link' to= "/">Home</Link>
-          <Link className='link' to= "/products" >Products</Link>
-          <Link className='link' to="/contact">Contact</Link>
-          <Link className='link' to="/about">About</Link>
-
-        </div>
+       </div>
 
 
-        <div className='navIcons'>
-          
-            <Link to='/login'>
-                <BiSolidUserCircle className='user'/>
-            </Link>
+       <div className = "centerArea">
 
-            <Link>
-                <HiShoppingCart className='user'/>
-            </Link>
+      
+            <form className='searchBox' onSubmit={searchSubmitHandler}>
 
-        </div>
+              <input 
+              type="text" 
+              placeholder='Search a Product ...'
+              onChange={(event) => setKeyword(event.target.value)}  
+              />
 
-       
+              <input type="submit" value="Search"/>
+
+            </form>
+
+
+          <div className="navigators">
+            <div className='links'>
+
+            <Link className='link' to= "/">Home</Link>
+            <Link className='link' to= "/products" >Products</Link>
+            <Link className='link' to="/contact">Contact</Link>
+            <Link className='link' to="/about">About</Link>
+
+            </div>
+          </div>
+
+       </div>
+
+       <div className = "user">
+
+              {isAuthenticated ? 
+
+              (
+                <UserOptions user={user}/>
+              ) 
+
+              : 
+
+              (
+              <Link to='/login'>
+                  <BiSolidUserCircle className='user-login-icon'/>
+              </Link>
+              )}
+
+              <Link>
+                  <HiShoppingCart className='cart-icon'/>
+              </Link>
+
+       </div>
 
       </div>
 

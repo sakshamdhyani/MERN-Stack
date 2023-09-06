@@ -9,10 +9,17 @@ import Home from "./component/Home/Home.js"
 import ProductDetails from "./component/Product/ProductDetails.js"
 import Products from "./component/Product/Products.js"
 import LoginSignUp from './component/User/LoginSignUp';
+import store from "./store";
+import { loadUser } from './actions/userAction';
+import Profile from "./component/User/Profile.js"
+import { useSelector } from 'react-redux';
+import ProtectedRoute from './component/Route/ProtectedRoute';
+import UpdateProfile from "./component/User/UpdateProfile.js";
+
 
 function App() {
 
-  // Rendering Font Families
+
   useEffect(() => {
 
     WebFont.load({
@@ -21,6 +28,8 @@ function App() {
       },
       
     });
+
+    store.dispatch(loadUser());
   
   },[]);
 
@@ -38,6 +47,11 @@ function App() {
         <Route  path='/products/:keyword' element = {<Products/>} />
         
         <Route exact path='/login' element={<LoginSignUp/>}/>
+
+        <Route exact path='/account' element={<ProtectedRoute component = {Profile} />}/>
+
+        <Route exact path='/me/update' element={<ProtectedRoute component = {UpdateProfile} />}/>
+    
       </Routes>
       
 
