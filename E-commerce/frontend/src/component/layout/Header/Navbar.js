@@ -93,10 +93,6 @@ const Navbar = () => {
               </Link>
               )}
 
-              <Link>
-                  <HiShoppingCart className='cart-icon'/>
-              </Link>
-
        </div>
 
       </div>

@@ -36,6 +36,9 @@
 
 .user{
     position: relative;
+    border: 1px solid black;
+    width: 10vmax;
+    height: 5vmax;
 }
 
 .navIcons{
@@ -66,7 +69,6 @@
 
 .speedDial{
     position: absolute;
-    left: -4vmax;
 }
 
 
