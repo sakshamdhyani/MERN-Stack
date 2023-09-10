@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "./LoginSignUp.css"
 import Loader from "../layout/Loader/Loader";
 import { Fragment , useRef , useState} from 'react';
-import { Link } from 'react-router-dom'
+import { Link, redirect, useLocation } from 'react-router-dom'
 import MailOutlineIcon from "@material-ui/icons/MailOutline"
 import LockOpenIcon from "@material-ui/icons/LockOpen"
 import FaceIcon from "@material-ui/icons/Face"
@@ -16,6 +16,7 @@ import { clearErrors , login , register } from '../../actions/userAction';
 
 const LoginSignup = () => {
 
+    const location = useLocation();
     const navigate = useNavigate();
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -79,7 +80,7 @@ const LoginSignup = () => {
         }
     }
 
-    
+    const redirect = location.search ? location.search.split("=")[1] : "/account";
     
     useEffect (() => {
         if(error){
@@ -88,10 +89,11 @@ const LoginSignup = () => {
         }
         
         if(isAuthenticated){
-            navigate("/account");
+            navigate(redirect);
         }
         
-    },[dispatch , alert , error,isAuthenticated,navigate])
+    },[dispatch , alert , error,isAuthenticated,navigate,redirect]);
+    
     
     // Css for div present below login or register buttons
     const switchTabs = (event , tab) => {
