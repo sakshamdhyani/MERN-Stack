@@ -5,6 +5,7 @@ import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import WebFont from "webfontloader";
 import Footer from "./component/layout/Footer/Footer.js";
 import Home from "./component/Home/Home.js"
+import { useAlert } from 'react-alert';
 
 import ProductDetails from "./component/Product/ProductDetails.js"
 import Products from "./component/Product/Products.js"
@@ -24,20 +25,24 @@ import ConfirmOrder from "./component/Cart/ConfirmOrder";
 import axios from 'axios';
 import Payment from "./component/Cart/Payment"
 import OrderSuccess from "./component/Cart/OrderSuccess"
+import MyOrders from "./component/Order/MyOrders.js"
 
 import { Elements } from '@stripe/react-stripe-js';
 import {loadStripe} from "@stripe/stripe-js"
 
 function App() {
 
+  const alert = useAlert();
   const {isAuthenticated , user} = useSelector((state) => state.user);
 
   const [stripeApiKey , setStripeApiKey] = useState("");
 
   async function getStripeApiKey() {
-    const {data} = await axios.get("/api/v1/stripeapikey");
 
-    setStripeApiKey(data.stripeApiKey);
+      const {data} = await axios.get("/api/v1/stripeapikey");
+  
+      setStripeApiKey(data.stripeApiKey);
+    
   }
 
   useEffect(() => {
@@ -50,8 +55,9 @@ function App() {
     });
 
     store.dispatch(loadUser());
-    
+  
     getStripeApiKey();
+
   },[]);
 
 
@@ -86,17 +92,25 @@ function App() {
         <Route exact path='/order/confirm' element={<ProtectedRoute component = {ConfirmOrder} />}/> 
 
 
-
+        {/* Payment Route */}
         <Route exact path='/process/payment' element={
          
-          <Elements stripe={loadStripe(stripeApiKey)}>
+          stripeApiKey ? (
+
+            <Elements stripe={loadStripe(stripeApiKey)}>
               <ProtectedRoute component = {Payment} />
-          </Elements>
+            </Elements>
+
+          ) : 
+          
+          (null)
 
         }/>
 
 
         <Route exact path='/success' element={<ProtectedRoute component = {OrderSuccess} />}/> 
+        
+        <Route exact path='/orders' element={<ProtectedRoute component = {MyOrders} />}/> 
 
 
       </Routes>

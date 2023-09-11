@@ -74,7 +74,7 @@ export const myOrders = () => async(dispatch) => {
         dispatch({type: MY_ORDERS_SUCCESS , payload: data.orders});
 
     }catch(error){
-        console.log("Error occured while creating order")
+
         dispatch({
             type: MY_ORDERS_FAIL,
             payload: error.response.data.message,

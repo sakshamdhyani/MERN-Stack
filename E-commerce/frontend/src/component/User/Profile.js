@@ -4,7 +4,7 @@ import {useSelector , useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../layout/Loader/Loader';
 import "./Profile.css"
-
+import ProfileImage from "./Profile.png"
 
 
 
@@ -13,7 +13,7 @@ const Profile = () => {
     const navigate = useNavigate();
     const {loading , user} = useSelector (state => state.user);
 
-
+    console.log(user)
   return (
 
       <Fragment>
@@ -26,7 +26,7 @@ const Profile = () => {
                 <div className="profileContainer">
                     <div>
                         <h1>Profile</h1>
-                        <img src= {user.avatar.url} alt={user.name} />
+                        <img src= {user.avatar ? user.avatar.url : ProfileImage } alt={user.name} />
                         <Link to="/me/update">Edit Profile</Link>
                     </div>
 

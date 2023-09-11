@@ -10,13 +10,14 @@ const ProtectedRoute = ({component: Component}) => {
 
     const {isAuthenticated , loading} = useSelector(state => state.user);
     const navigate = useNavigate();
-
-    if(isAuthenticated){
-        return <Component/>
-    }
-    else{
+    
+    if(isAuthenticated === false){
         return navigate("/login");
     }
+    return <Component/>
+   
+    
+
     
   };
 
