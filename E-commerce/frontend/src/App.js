@@ -26,6 +26,7 @@ import axios from 'axios';
 import Payment from "./component/Cart/Payment"
 import OrderSuccess from "./component/Cart/OrderSuccess"
 import MyOrders from "./component/Order/MyOrders.js"
+import OrderDetails from "./component/Order/OrderDetails.js"
 
 import { Elements } from '@stripe/react-stripe-js';
 import {loadStripe} from "@stripe/stripe-js"
@@ -111,6 +112,8 @@ function App() {
         <Route exact path='/success' element={<ProtectedRoute component = {OrderSuccess} />}/> 
         
         <Route exact path='/orders' element={<ProtectedRoute component = {MyOrders} />}/> 
+        
+        <Route exact path='/order/:id' element={<ProtectedRoute component = {OrderDetails} />}/> 
 
 
       </Routes>
