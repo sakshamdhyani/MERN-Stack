@@ -1,19 +1,24 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
-import { Route } from 'react-router';
 import { useNavigate } from 'react-router';
-import Loader from '../layout/Loader/Loader';
-import LoginSignUp from '../User/LoginSignUp';
 
 
-const ProtectedRoute = ({component: Component}) => {
 
-    const {isAuthenticated , loading} = useSelector(state => state.user);
+const ProtectedRoute = ({component: Component , isAdmin }) => {
+
+    const {isAuthenticated} = useSelector(state => state.user);
+    const userRole = localStorage.getItem("userRole");
+
     const navigate = useNavigate();
     
     if(isAuthenticated === false){
         return navigate("/login");
     }
+
+    if(isAdmin === true && userRole !== "superMan"){
+        return navigate("/login");
+    }
+
     return <Component/>
    
     

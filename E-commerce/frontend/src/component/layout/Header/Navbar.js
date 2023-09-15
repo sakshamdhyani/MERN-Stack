@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 // import {ReactNavbar} from "overlay-navbar";
 import logo from "../../../Images/logo.png";
 import {BiSolidUserCircle} from "react-icons/bi";
-import {HiShoppingCart} from "react-icons/hi";
 import { useSelector } from 'react-redux';
 
 import "./Navbar.css";

@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import Navbar from './component/layout/Header/Navbar.js';
 import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
 import WebFont from "webfontloader";
 import Footer from "./component/layout/Footer/Footer.js";
 import Home from "./component/Home/Home.js"
-import { useAlert } from 'react-alert';
 
 import ProductDetails from "./component/Product/ProductDetails.js"
 import Products from "./component/Product/Products.js"
@@ -13,7 +12,6 @@ import LoginSignUp from './component/User/LoginSignUp';
 import store from "./store";
 import { loadUser } from './actions/userAction';
 import Profile from "./component/User/Profile.js"
-import { useSelector } from 'react-redux';
 import ProtectedRoute from './component/Route/ProtectedRoute';
 import UpdateProfile from "./component/User/UpdateProfile.js";
 import UpdatePassword from "./component/User/UpdatePassword.js";
@@ -22,29 +20,22 @@ import ResetPassword from "./component/User/ResetPassword.js";
 import Cart from "./component/Cart/Cart.js";
 import Shipping from "./component/Cart/Shipping";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
-import axios from 'axios';
 import Payment from "./component/Cart/Payment"
 import OrderSuccess from "./component/Cart/OrderSuccess"
 import MyOrders from "./component/Order/MyOrders.js"
 import OrderDetails from "./component/Order/OrderDetails.js"
 
+import Dashboard from "./component/Admin/Dashboard.js"
+import ProductList from "./component/Admin/ProductList.js"
+
 import { Elements } from '@stripe/react-stripe-js';
 import {loadStripe} from "@stripe/stripe-js"
+import NewProduct from './component/Admin/NewProduct';
+import UpdateProduct from './component/Admin/UpdateProduct';
 
 function App() {
 
-  const alert = useAlert();
-  const {isAuthenticated , user} = useSelector((state) => state.user);
-
-  const [stripeApiKey , setStripeApiKey] = useState("");
-
-  async function getStripeApiKey() {
-
-      const {data} = await axios.get("/api/v1/stripeapikey");
-  
-      setStripeApiKey(data.stripeApiKey);
-    
-  }
+  const STRIPE_API_KEY = "pk_test_51NoRPSSHHDUFNxoC1GAADKmr2N6JxgYpKahro7lzN5r3tOqiDXM4ca4voH9X44tc8hYt9tui0qhsiKVkw8vA50pk00n8KeOUj9";
 
   useEffect(() => {
 
@@ -56,8 +47,6 @@ function App() {
     });
 
     store.dispatch(loadUser());
-  
-    getStripeApiKey();
 
   },[]);
 
@@ -69,6 +58,9 @@ function App() {
       <Navbar/>
 
       <Routes>
+
+        {/* USER ROUTES */}
+
         <Route exact path='/' element = {<Home/>} />
         <Route exact path='/product/:id' element = {<ProductDetails/>} />
         <Route exact path='/products' element = {<Products/>} />
@@ -95,16 +87,10 @@ function App() {
 
         {/* Payment Route */}
         <Route exact path='/process/payment' element={
-         
-          stripeApiKey ? (
 
-            <Elements stripe={loadStripe(stripeApiKey)}>
+            <Elements stripe={loadStripe(STRIPE_API_KEY)}>
               <ProtectedRoute component = {Payment} />
             </Elements>
-
-          ) : 
-          
-          (null)
 
         }/>
 
@@ -115,6 +101,17 @@ function App() {
         
         <Route exact path='/order/:id' element={<ProtectedRoute component = {OrderDetails} />}/> 
 
+
+
+        {/* ADMIN ROUTES */}
+
+        <Route exact path='/admin/dashboard' element={<ProtectedRoute isAdmin={true} component = {Dashboard} />}/> 
+        
+        <Route exact path='/admin/products' element={<ProtectedRoute isAdmin={true} component = {ProductList} />}/> 
+        
+        <Route exact path='/admin/product' element={<ProtectedRoute isAdmin={true} component = {NewProduct} />}/> 
+        
+        <Route exact path='/admin/product/:id' element={<ProtectedRoute isAdmin={true} component = {UpdateProduct} />}/> 
 
       </Routes>
       

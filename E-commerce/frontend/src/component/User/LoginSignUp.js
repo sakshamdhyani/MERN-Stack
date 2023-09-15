@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "./LoginSignUp.css"
 import Loader from "../layout/Loader/Loader";
 import { Fragment , useRef , useState} from 'react';
-import { Link, redirect, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import MailOutlineIcon from "@material-ui/icons/MailOutline"
 import LockOpenIcon from "@material-ui/icons/LockOpen"
 import FaceIcon from "@material-ui/icons/Face"

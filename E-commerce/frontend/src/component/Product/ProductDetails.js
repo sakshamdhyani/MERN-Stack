@@ -3,7 +3,6 @@ import React, { Fragment, useEffect , useState} from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the carousel styles
 import { Carousel } from 'react-responsive-carousel';
 
-import ReactStars from "react-rating-stars-component"
 import "./ProductDetails.css"
 import {useSelector , useDispatch} from "react-redux"
 import {clearErrors, getProductDetails, newReview} from "../../actions/productAction";
@@ -154,7 +153,7 @@ const buttonStyles = {
                 </div>
                 
                 <div className="detailsBlock-2">
-                  <Rating {...options}/>
+                  <Rating {...options} name='rating' />
                   <span className='detailsBlock-2-span'> ({product.numOfReview} Reviews) </span>
                 </div>
 
@@ -236,7 +235,7 @@ const buttonStyles = {
 
           {product.reviews && product.reviews[0] ? (
             <div className="reviews">
-              {product.reviews.map((review) => <ReviewCard review={review} />)}
+              {product.reviews.map((review) => <ReviewCard review={review} key={review} />)}
             </div>
           ) : (
             <p className='noReviews'>No Reviews Yet</p>

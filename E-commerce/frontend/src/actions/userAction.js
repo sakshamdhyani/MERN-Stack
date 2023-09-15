@@ -11,7 +11,7 @@ import { CLEAR_ERRORS,
     LOGOUT_FAIL,
     LOGOUT_SUCCESS,
     UPDATE_PROFILE_FAIL,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,
-    UPDATE_PASSWORD_REQUEST , UPDATE_PASSWORD_FAIL , UPDATE_PASSWORD_SUCCESS , UPDATE_PASSWORD_RESET,
+    UPDATE_PASSWORD_REQUEST , UPDATE_PASSWORD_FAIL , UPDATE_PASSWORD_SUCCESS ,
     FORGOT_PASSWORD_SUCCESS,FORGOT_PASSWORD_REQUEST,FORGOT_PASSWORD_FAIL,
     RESET_PASSWORD_FAIL , RESET_PASSWORD_REQUEST ,RESET_PASSWORD_SUCCESS } from "../constants/userConstants";
 
@@ -24,6 +24,7 @@ import axios from "axios";
 
 // login
 export const login = (email,password) => async (dispatch) => {
+
 
     try{
 
@@ -38,6 +39,12 @@ export const login = (email,password) => async (dispatch) => {
         );
 
         dispatch({type: LOGIN_SUCCESS , payload: data.user});
+
+        //  if admin , code = superMan
+
+        if(data.user.role === "admin") {
+            localStorage.setItem("userRole" , "superMan")
+        }
 
     }catch(error){
         dispatch({type: LOGIN_FAIL , payload: error.response.data.message})
@@ -80,6 +87,9 @@ export const loadUser = () => async (dispatch) => {
 
         dispatch({type: LOAD_USER_SUCCESS , payload: data.user});
 
+        if(data.user.role === "admin") {
+            localStorage.setItem("userRole" , "superMan")
+        }
 
     }catch(error){
         dispatch({type: LOAD_USER_FAIL , payload: error.response.data.message})
@@ -96,6 +106,8 @@ export const logout = () => async (dispatch) => {
         await axios.get(`/api/v1/logout`);
 
         dispatch({type: LOGOUT_SUCCESS});
+
+        localStorage.removeItem("userRole");
 
     }catch(error){
         dispatch({type: LOGOUT_FAIL, payload: error.response.data.message})

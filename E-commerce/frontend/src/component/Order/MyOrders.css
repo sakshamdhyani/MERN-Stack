@@ -14,7 +14,7 @@
     font: 400 1.2vmax "Roboto";
     padding: 0.5vmax;
     box-sizing: border-box;
-    color: rgb(255, 255 , 255);
+    color: black;
     transition: all 0.5s;
     background-color: rgb(44, 44, 44);
 }

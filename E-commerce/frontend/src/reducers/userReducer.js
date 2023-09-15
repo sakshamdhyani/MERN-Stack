@@ -38,6 +38,7 @@ export const userReducer = (state = {user: {}} , action) => {
                 user: action.payload,
             }
 
+
         case LOGIN_FAIL:
             case REGISTER_USER_FAIL:
             return{
