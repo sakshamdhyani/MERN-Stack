@@ -32,6 +32,11 @@ import { Elements } from '@stripe/react-stripe-js';
 import {loadStripe} from "@stripe/stripe-js"
 import NewProduct from './component/Admin/NewProduct';
 import UpdateProduct from './component/Admin/UpdateProduct';
+import OrderList from './component/Admin/OrderList';
+import ProcessOrder from './component/Admin/ProcessOrder';
+import UsersList from './component/Admin/UsersList';
+import UpdateUser from './component/Admin/UpdateUser';
+
 
 function App() {
 
@@ -112,6 +117,15 @@ function App() {
         <Route exact path='/admin/product' element={<ProtectedRoute isAdmin={true} component = {NewProduct} />}/> 
         
         <Route exact path='/admin/product/:id' element={<ProtectedRoute isAdmin={true} component = {UpdateProduct} />}/> 
+        
+        <Route exact path='/admin/orders' element={<ProtectedRoute isAdmin={true} component = {OrderList} />}/> 
+        
+        <Route exact path='/admin/order/:id' element={<ProtectedRoute isAdmin={true} component = {ProcessOrder} />}/> 
+        
+        <Route exact path='/admin/users' element={<ProtectedRoute isAdmin={true} component = {UsersList} />}/> 
+
+        <Route exact path='/admin/user/:id' element={<ProtectedRoute isAdmin={true} component = {UpdateUser} />}/> 
+       
 
       </Routes>
       

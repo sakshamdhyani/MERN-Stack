@@ -76,7 +76,6 @@ const MyOrders = () => {
 
   orders &&
     orders.forEach((item,index) => {
-      <Link to={`order/${item._id}`}> {item._id} </Link>
       rows.push({
         itemsQty: item.orderItems.length,
         id: item._id,
