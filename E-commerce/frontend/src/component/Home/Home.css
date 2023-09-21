@@ -1,12 +1,10 @@
 
 .banner{
     background-image: linear-gradient(to right , #635dc0 , #3027ae);
-    height: 100vmin;
     display: flex;
-    flex-direction: column;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     color: white;
 }
 
@@ -17,8 +15,18 @@
     font: 600 2.5vmax "Roboto";
 }
 
-.banner > p {
+.banner > .rightSide > p {
     font: 300 1.4vmax "Lucida Sans";
+}
+
+.leftSide{
+    padding: 3rem;
+    width: 100%;
+    filter: drop-shadow(rgb(197, 185, 185) 0px 5px 10px) ;
+}
+
+.carouselImages{
+    width: 100%;
 }
 
 .banner > a > button {

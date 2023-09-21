@@ -7,9 +7,14 @@ import {getProduct , clearErrors} from "../../actions/productAction";
 import {useSelector , useDispatch} from "react-redux";
 import Loader from '../layout/Loader/Loader';
 import { useAlert } from 'react-alert';
+import Carousel from 'react-material-ui-carousel'
 
+import logo from "../../Images/homeCarousel1.jpg"
+import logo2 from "../../Images/homeCarousel2.jpg"
+import logo3 from "../../Images/homeCarousel3.jpg"
+import logo4 from "../../Images/homeCarousel4.jpg"
 
-
+ 
 const Home = () => {
 
     const alert = useAlert();
@@ -42,14 +47,28 @@ const Home = () => {
             <MetaData title = "E-commerce" />
 
             <div className="banner">
-                <p>Welcome to Ecommerce</p>
-                <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
-                <a href="#container">
-                    <button>
-                        Scroll <CgMouse/>
-                    </button>
-                </a>
+                <div className="leftSide">
+
+                    <Carousel>
+                        <img src={logo} alt="" className='carouselImages' />
+                        <img src={logo2} alt="" className='carouselImages'/>
+                        <img src={logo3} alt="" className='carouselImages'/>
+                        <img src={logo4} alt="" className='carouselImages'/>
+                    </Carousel>
+
+                </div>
+
+                {/* <div className="rightSide">
+                    <p>Welcome to GemHaven</p>
+                    <h1>FIND AMAZING PRODUCTS BELOW</h1>
+
+                    <a href="#container">
+                        <button>
+                            Scroll <CgMouse/>
+                        </button>
+                    </a>
+                </div> */}
             </div>
 
             <h2 className="homeHeading">Featured Products</h2>

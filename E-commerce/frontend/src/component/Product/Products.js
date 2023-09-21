@@ -19,8 +19,8 @@ const categories = [
   "Tops",
   "Attire",
   "Camera",
-  "SmartPhones",
-  "Mobile"
+  "Mobile",
+  "Watch"
 ]
 
 
@@ -92,7 +92,7 @@ const Products = () => {
 
           <div className="products">
 
-            {products.length > 1 ? 
+            {products.length >= 1 ? 
                 products.map((product) => (
                   <ProductCard key={product._id} product={product} />
                 ))

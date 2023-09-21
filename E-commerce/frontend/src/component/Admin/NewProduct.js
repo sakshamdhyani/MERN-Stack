@@ -24,8 +24,8 @@ const NewProduct = () => {
         "Tops",
         "Attire",
         "Camera",
-        "SmartPhones",
-        "Mobile"
+        "Mobile",
+        "Watch"
       ]
 
 
