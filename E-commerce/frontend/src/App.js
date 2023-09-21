@@ -36,7 +36,8 @@ import OrderList from './component/Admin/OrderList';
 import ProcessOrder from './component/Admin/ProcessOrder';
 import UsersList from './component/Admin/UsersList';
 import UpdateUser from './component/Admin/UpdateUser';
-
+import About from './component/layout/About/About';
+import Contact from "./component/layout/Contact/Contact"
 
 function App() {
 
@@ -67,6 +68,8 @@ function App() {
         {/* USER ROUTES */}
 
         <Route exact path='/' element = {<Home/>} />
+        <Route exact path='/about' element = {<About/>} />
+        <Route exact path='/contact' element = {<Contact/>} />
         <Route exact path='/product/:id' element = {<ProductDetails/>} />
         <Route exact path='/products' element = {<Products/>} />
         <Route  path='/products/:keyword' element = {<Products/>} />
