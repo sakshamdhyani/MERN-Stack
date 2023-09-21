@@ -19,7 +19,7 @@ const ProductCard = ({product}) => {
 
         <img src={product.images[0].url} alt={product.name} />
         <p>{product.name}</p>
-        <div>
+        <div className='rating'>
             <Rating {...options}/> 
             <div className='productCardSpan'> ({product.numOfReview} Reviews) </div>
         </div>

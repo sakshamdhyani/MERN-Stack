@@ -41,7 +41,7 @@
     background-color: rgba(255,255,255,0);
     color: white;
 }
-
+/* 
 .banner::after {
     content: "";
     width: 100vw;
@@ -52,7 +52,7 @@
     left: 0%;
     max-width: 100%;
     clip-path: polygon(100% 68% , 0 100% , 100% 100%);
-}
+} */
 
 
 .homeHeading{
@@ -128,28 +128,27 @@
 /* Media queries */
 
 
-@media screen and (max-width : 600px) {
+@media screen and (max-width : 800px) {
 
     .productCard , .productCard > img{
         width: 16vmax;
     }
     
     .productCard > p {
-        font-size: 1.7vmax;
-    }
-
-    .productCard > div {
-        margin: 0vmax;
-        display: block;
+        font-size: 2vmax;
     }
 
     .productCard > span {
-        font-size: 1.5vmax;
+        font-size: 1.8vmax;
     }
 
     .productCard > div > span {
         margin: 0 0.5vmax;
-        font: 300 1vmax "Roboto";
+        font: 300 2vmax "Roboto";
+    }
+
+    .productCardSpan{
+        font-size: 2vmax;
     }
 
 }

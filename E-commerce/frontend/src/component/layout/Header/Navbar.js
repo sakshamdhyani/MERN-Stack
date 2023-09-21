@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 // import {ReactNavbar} from "overlay-navbar";
 import logo from "../../../Images/logo.png";
 import {BiSolidUserCircle} from "react-icons/bi";
+import {BsFillCartCheckFill} from "react-icons/bs";
+
 import { useSelector } from 'react-redux';
 
 import "./Navbar.css";
@@ -88,9 +90,15 @@ const Navbar = () => {
               : 
 
               (
-              <Link to='/login'>
-                  <BiSolidUserCircle className='user-login-icon'/>
-              </Link>
+                <div className='cart-n-login'>
+                    <Link to='/login'>
+                      <BiSolidUserCircle className='user-login-icon'/>
+                  </Link>
+
+                  <Link to='/cart'>
+                      <BsFillCartCheckFill className='cart-icon'/>
+                  </Link>
+                </div>
               )}
 
        </div>

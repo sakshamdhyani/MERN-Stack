@@ -83,7 +83,29 @@ footer{
 @media screen and (max-width: 800px) {
     
     .midFooter > img{
-        width: 100px;
+        width: 160px;
+    }
+    footer{
+        font-size: 2vmax;
     }
 
+    .rightFooter h4{
+        margin-top: -3vmax;
+        margin-bottom: 1vmax;
+        font-size: 2vmax;
+    }
+
+    .rightFooter a {
+        font-size: 2vmax;
+    }
+
+    .leftFooter h4 {
+        font-size: 2vmax;
+        margin-top: 2vmax;
+        margin-bottom: 1vmax;
+    }
+
+    .leftFooter p{
+        font-size: 1.3vmax;
+    }
 }
