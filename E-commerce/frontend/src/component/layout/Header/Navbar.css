@@ -2,25 +2,25 @@
 .navParent{
     background-image: linear-gradient(to right , #635dc0 , #3027ae);
     width: 100%;
-    /* padding-top: 5px; */
     z-index: 100;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.123);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.123);
 }
 
 .navbar{
+    padding-bottom: 0.5rem;
     width: 75%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
+    /* align-items: center; */
 }
 
 
 .navbarLogo > img{
-    width: 150px;
-    border: 1px solid black;
+    width: 200px;
+    color: blue;
 }
+
 
 
 .link{
@@ -34,9 +34,15 @@
     color: #eb4034;
 }
 
+.links{
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .user{
     position: relative;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 10vmax;
     height: 5vmax;
 }
@@ -69,41 +75,60 @@
 
 .speedDial{
     position: absolute;
+    top:20%;
 }
 
 
 /* Center area */
 .centerArea{
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    width: 50%;
+
 }
 
+.searchBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.searchBox input[type="text"]{
+    margin-top: 1rem;
+    border: none;
+    padding: 0.8rem;
+    border-top-left-radius: 25px;
+    width: 100%;
+}
 
+.searchBox input[type="submit"]{
+    border: none;
+    padding: 0.8rem;
+    background-color: tomato;
+    margin-top: 1rem;
+    border-bottom-right-radius: 25px;
+}
+
+.searchBox input[type="submit"]:hover{
+    background-color: rgb(243, 64, 33);
+    cursor: pointer;
+}
 
 @media screen and (max-width: 800px) {
     
     .navbar{
-    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     
     }
 
     .navbarLogo > img{
-        width: 100px;
-        margin-bottom: -10px;
-    }
-
-    .searchArea{
-        margin-bottom: 10px;
-        width: 80%;
+        width: 200px;
     }
 
     .links{
-        display: flex;
         gap: 2vmax;
     }
 
@@ -114,6 +139,19 @@
         padding: 0.6vmax 1vmax;
         border-radius: 10px;
         font: 500 1.5vmax "Roboto";
+    }
+
+    .centerArea{
+        /* border: 1px solid black; */
+        width: 100%;
+    }
+
+    .searchBox input[type="text"]{
+        width: 100%;
+    }
+
+    .speedDial{
+      position: static;
     }
 }
 

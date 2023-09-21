@@ -107,6 +107,13 @@
 }
 
 
+.noProduct{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 4rem;
+    margin-right: 3rem;
+}
+
 
 @media screen and (max-width: 600px) {
     

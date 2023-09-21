@@ -43,11 +43,6 @@ footer{
     text-align: center;
 }
 
-.midFooter > h1 {
-    font-size: 4vmax;
-    font-family: "Roboto";
-    color: #eb4034;
-}
 
 .midFooter > p {
     max-width: 60%;
@@ -82,4 +77,13 @@ footer{
 
 .rightFooter > a:hover {
     color: #eb4034;
+}
+
+
+@media screen and (max-width: 800px) {
+    
+    .midFooter > img{
+        width: 100px;
+    }
+
 }
