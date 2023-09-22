@@ -5,6 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../layout/Loader/Loader';
 import "./Profile.css"
 import ProfileImage from "./Profile.png"
+import FormControl from '@mui/material/FormControl'
+import FormLabel from '@mui/material/FormLabel'
+import FormGroup from '@mui/material/FormGroup'
+import FormHelperText from '@mui/material/FormHelperText'
 
 
 

@@ -86,7 +86,7 @@ const Products = () => {
         
         <Fragment>
 
-          <MetaData title="PRODUCTS -- ECOMMERCE"/>
+          <MetaData title="Products - GemHaven"/>
 
           <h2 className="productsHeading">Products</h2>
 

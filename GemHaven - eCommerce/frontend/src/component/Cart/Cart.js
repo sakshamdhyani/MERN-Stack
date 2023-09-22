@@ -7,6 +7,7 @@ import { useAlert } from 'react-alert'
 import { Link, useNavigate } from 'react-router-dom';
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import {Typography} from "@material-ui/core"
+import MetaData from '../layout/MetaData';
 
 
 const Cart = () => {
@@ -46,7 +47,7 @@ const Cart = () => {
 
   return (
    <Fragment>
-
+        <MetaData title={"Cart - GemHaven"} />
         {cartItems.length === 0  ? 
 
             <div className='emptyCart'>

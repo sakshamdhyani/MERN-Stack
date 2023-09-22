@@ -23,6 +23,7 @@ const Home = () => {
         (state) => state.products
     );
     window.scrollTo(0, 0);
+
     useEffect(() => {
 
         if(error){
@@ -44,7 +45,7 @@ const Home = () => {
         
         <Fragment>
 
-            <MetaData title = "E-commerce" />
+            <MetaData title = "GemHaven" />
 
             <div className="banner">
 

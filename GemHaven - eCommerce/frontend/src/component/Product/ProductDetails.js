@@ -124,7 +124,7 @@ const buttonStyles = {
 
         <Fragment>
 
-        <MetaData title={`${product.name} -- ECOMMERCE`}/>
+        <MetaData title={`${product.name} - GemHaven`}/>
 
         <div className='ProductDetails' id='#ProductDetails'>
 

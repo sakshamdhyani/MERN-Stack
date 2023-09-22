@@ -3,6 +3,7 @@ import "./aboutSection.css";
 import { Button, Typography, Avatar } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import MetaData from "../MetaData";
 
 
 
@@ -15,7 +16,7 @@ const About = () => {
   };
   return (
     <div className="aboutSection">
-
+      <MetaData title={"About Us"} />
       <div className="aboutSectionContainer">
         <Typography component="h1">About Us</Typography>
 

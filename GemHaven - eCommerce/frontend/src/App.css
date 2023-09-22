@@ -3,6 +3,10 @@
     scroll-behavior: smooth;
 }
 
+body{
+    cursor: url("./Images/cursor.png") , auto;
+}
+
  /* Hide the increase and decrease buttons */
  input[type="number"]::-webkit-inner-spin-button,
  input[type="number"]::-webkit-outer-spin-button {
